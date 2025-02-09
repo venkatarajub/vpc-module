@@ -16,10 +16,11 @@ variable "common_tags" {
         terraform = true
     }
 }
-variable "database_cidr" {
+variable "database_cidrs" {
+    type = list
     default = {}
     validation {
-        condition = var.database_cidr == 2
+        condition = length(var.database_cidrs) == 2
         error_message = "please provide 2 valid db cidrs"
     }
 }

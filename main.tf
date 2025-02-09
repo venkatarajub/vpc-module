@@ -17,9 +17,9 @@ resource "aws_internet_gateway" "main" {
   )
 }
 resource "aws_subnet" "database" {
-    count = length(var.database_cidr)
+    count = length(var.database_cidrs)
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.database_cidr[count.index]
+  cidr_block = var.database_cidrs[count.index]
   availability_zone = local.az_names[count.index]
   map_public_ip_on_launch = false
   tags = merge(
