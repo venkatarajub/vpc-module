@@ -69,7 +69,7 @@ resource "aws_db_subnet_group" "database" {
 }
 
 resource "aws_eip" "my_ip" {  
-  domain   = aws_vpc.main
+  domain   = "vpc"
   tags = merge(
     var.common_tags,
     {
