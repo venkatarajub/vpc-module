@@ -17,7 +17,6 @@ variable "common_tags" {
     }
 }
 variable "database_cidrs" {
-    type = list
     default = {}
     validation {
         condition = length(var.database_cidrs) == 2
