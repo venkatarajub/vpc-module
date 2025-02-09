@@ -23,3 +23,19 @@ variable "database_cidrs" {
         error_message = "please provide 2 valid db cidrs"
     }
 }
+
+variable "private_cidrs" {
+    default = {}
+    validation {
+        condition = length(var.private_cidrs) == 2
+        error_message = "please provide 2 valid private cidrs"
+    }
+}
+
+variable "public_cidrs" {
+    default = {}
+    validation {
+        condition = length(var.public_cidrs) == 2
+        error_message = "please provide 2 valid public cidrs"
+    }
+}
