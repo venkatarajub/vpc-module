@@ -67,3 +67,26 @@ resource "aws_db_subnet_group" "database" {
     }
   )
 }
+
+resource "aws_eip" "my_ip" {  
+  domain   = aws_vpc.main
+  tags = merge(
+    var.common_tags,
+    {
+        Name = local.resource_name
+    }
+  )
+}
+
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.my_ip.id
+  subnet_id     = aws_subnet.public[0].id
+
+  tags = merge(
+    var.common_tags,
+    {
+        Name = local.resource_name
+    }
+  )
+  depends_on = [aws_internet_gateway.main]
+}
