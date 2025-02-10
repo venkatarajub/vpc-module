@@ -25,3 +25,14 @@ output "db_subnet_group_arn" {
     value = aws_db_subnet_group.database.arn
 }
 
+output "db_route_table_id" {
+    value = aws_route_table.database.id
+}
+
+output "private_route_table_id" {
+    value = aws_route_table.private.id
+}
+
+output "public_route_table_id" {
+    value = aws_route_table.public.id
+}
