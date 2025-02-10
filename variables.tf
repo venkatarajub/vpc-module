@@ -39,3 +39,10 @@ variable "public_cidrs" {
         error_message = "please provide 2 valid public cidrs"
     }
 }
+
+variable "is_peering_required" {
+    type =  bool    
+}
+variable "peer_owner_id" {
+    default = {}
+}
